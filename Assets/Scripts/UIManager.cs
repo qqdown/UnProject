@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour {
     public Button ButtonPickup;
     public Image LargeImage;
 
+    public Image FadeImage;
+
     public string PlayScene = "Player";
 
     private Dictionary<Item, UIBagItem> bagItemDic = new Dictionary<Item, UIBagItem>();

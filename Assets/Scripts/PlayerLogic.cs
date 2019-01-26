@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityStandardAssets.CrossPlatformInput;
+using DG.Tweening;
 
 public class PlayerLogic : MonoBehaviour {
 
@@ -10,11 +12,11 @@ public class PlayerLogic : MonoBehaviour {
     public float RotateMultiplier = 1;
 
     private Bag bag = new Bag();
-    private int san;
+    public int san =100;
 
-    public delegate void GameOverHandler();
-    public event GameOverHandler GameOverEvent;
+    public UnityEvent GameOverEvent  = new UnityEvent();
     public bool AllowMove = true;
+    public Transform StartPoint;
 
     private Vector3 m_Move;
     private Animation m_Anim;
@@ -99,6 +101,13 @@ public class PlayerLogic : MonoBehaviour {
         san -= delta;
         if (san <= 0)
         {
+            var cg = UIManager.GetInst().FadeImage.GetComponent<CanvasGroup>();
+            cg.DOFade(1, 0.5f).OnComplete(()=>
+            {
+                transform.position = StartPoint.position;
+                san = 100;
+                cg.DOFade(0, 0.5f);
+            });
             OnGameOver();
         }
         Debug.Log(san);
@@ -108,7 +117,7 @@ public class PlayerLogic : MonoBehaviour {
     {
         if (GameOverEvent != null)
         {
-            GameOverEvent();
+            GameOverEvent.Invoke();
         }
     }
 
