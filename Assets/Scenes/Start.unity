@@ -3455,7 +3455,7 @@ MonoBehaviour:
   BagContent: {fileID: 379796952}
   Codebox: {fileID: 986299919}
   ButtonPickup: {fileID: 70307529}
-  PlayScene: Play1
+  PlayScene: Play
 --- !u!114 &1209565377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4940,7 +4940,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 819742767}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.93
+  m_Size: 0.92999995
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
