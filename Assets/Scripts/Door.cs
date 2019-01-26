@@ -20,7 +20,7 @@ public class Door : MonoBehaviour {
 
     public void Open()
     {
-        transform.DORotate(new Vector3(0, 90, 0), 1, RotateMode.Fast);
+        transform.DOLocalRotate(new Vector3(0, 90, 0), 1, RotateMode.Fast);
     }
 
 }
