@@ -20,8 +20,8 @@ RenderSettings:
   m_FogDensity: 0.31
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.18566997, g: 0.17517301, b: 0.2647059, a: 1}
-  m_AmbientEquatorColor: {r: 0.078935996, g: 0.11837552, b: 0.14705884, a: 1}
+  m_AmbientSkyColor: {r: 0.26034778, g: 0.24902679, b: 0.3455882, a: 1}
+  m_AmbientEquatorColor: {r: 0.21896628, g: 0.28375977, b: 0.33088237, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
@@ -4631,8 +4631,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   id_: 4
-  name_: "\u5956\u676F"
-  msg_: "\u5956\u676F\u4E00\u4E2A"
+  name_: "\u79EF\u7070\u7684\u5956\u676F"
+  msg_: "\u4E00\u4E2A\u79EF\u6EE1\u7070\u5C18\u7684\u5956\u676F\uFF0C\u662F\u7238\u7238\u5728xx\u6BD4\u8D5B\u4E2D\u83B7\u5F97\u7684"
   type_: 4
   canPickup: 0
   texture: {fileID: 21300000, guid: 7259f7ffe8167014fa14fbd829f39d1e, type: 3}
@@ -6292,7 +6292,7 @@ MonoBehaviour:
   msg_: "\u8F66\u5E93\u94A5\u5319"
   type_: 1
   canPickup: 0
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: fb31b5e80be02674abf143a61f208026, type: 3}
   highlighter: {fileID: 0}
   door_: {fileID: 302135775}
 --- !u!54 &769819338
@@ -7621,9 +7621,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  id_: 4
+  id_: 3
   name_: "\u7CD6\u679C"
-  msg_: test
+  msg_: "\u751C\u751C\u7684\u7CD6\u679C\uFF0C\u5403\u4E86\u53EF\u4EE5\u8BA9\u4EBA\u66F4\u5F00\u5FC3"
   type_: 2
   canPickup: 1
   texture: {fileID: 21300000, guid: 535a0f0972feae446b7b356e7f699f48, type: 3}
@@ -9967,8 +9967,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   id_: 5
-  name_: "\u5956\u676F"
-  msg_: "\u5956\u676F\u4E00\u4E2A"
+  name_: "\u5E72\u51C0\u7684\u5956\u676F"
+  msg_: "\u5956\u676F\u4E0B\u9762\u5199\u7740\u83B7\u5956\u65E5\u671F\uFF1A19\u5E741\u67085\u65E5"
   type_: 3
   canPickup: 0
   texture: {fileID: 21300000, guid: deea2d954082d7544bb7b9ba85f29abe, type: 3}
@@ -12215,10 +12215,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   id_: 9
   name_: "\u4E3B\u5367\u94A5\u5319"
-  msg_: test
+  msg_: "\u80FD\u591F\u6253\u5F00\u7238\u5988\u623F\u95F4\u7684\u94A5\u5319"
   type_: 1
   canPickup: 1
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: e013a5ea15792ab4bad25587b6e39dc0, type: 3}
   highlighter: {fileID: 0}
   door_: {fileID: 1061692366}
 --- !u!54 &1494000051
