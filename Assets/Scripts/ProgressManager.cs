@@ -20,6 +20,11 @@ public class ProgressManager : MonoBehaviour {
     public delegate void StateChangeHandler(ProgressState now_state);
     public event StateChangeHandler StateEvent;
 
+    public GameObject finalTrigger;
+
+    public Item[] winItems;
+    private int i = 0;
+
     private void Awake()
     {
         s_progressManager = this;
@@ -28,6 +33,20 @@ public class ProgressManager : MonoBehaviour {
     public static ProgressManager GetInst()
     {
         return s_progressManager;
+    }
+
+    private void Start()
+    {
+        foreach(var item in winItems){
+            item.OnPickup.AddListener(()=>
+            {
+                i++;
+                if(i == winItems.Length)
+                {
+                    finalTrigger.SetActive(true);
+                }
+            });
+        }
     }
 
     public ProgressState GetState()
