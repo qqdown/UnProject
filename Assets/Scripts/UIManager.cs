@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour {
 
     public Button ButtonPickup;
 
+    public string PlayScene = "Player";
+
     private Dictionary<Item, UIBagItem> bagItemDic = new Dictionary<Item, UIBagItem>();
 
     private PlayerLogic player
@@ -56,7 +58,7 @@ public class UIManager : MonoBehaviour {
 
     public void OnButtonStartClick()
     {
-        SceneManager.LoadScene("Play");
+        SceneManager.LoadScene(PlayScene);
         PanelStart.SetActive(false);
         PanelPlay.SetActive(true);
     }

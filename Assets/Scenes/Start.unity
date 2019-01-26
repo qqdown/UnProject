@@ -1346,6 +1346,7 @@ MonoBehaviour:
     type: 2}
   BagContent: {fileID: 379796952}
   ButtonPickup: {fileID: 70307529}
+  PlayScene: Play1
 --- !u!114 &1209565377
 MonoBehaviour:
   m_ObjectHideFlags: 0
