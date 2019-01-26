@@ -2007,7 +2007,7 @@ Prefab:
     - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
         type: 2}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4502988459081772, guid: 9588fc48e1b191247a0ffb4e646f4e65, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2073,7 +2073,7 @@ Prefab:
     - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
         type: 2}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: CAT_KEY
+      value: CAR_KEY
       objectReference: {fileID: 0}
     - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
         type: 2}
@@ -14547,6 +14547,11 @@ Prefab:
         type: 2}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: PARENT_ROOM_KEY
+      objectReference: {fileID: 0}
+    - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
+        type: 2}
+      propertyPath: repeatTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9588fc48e1b191247a0ffb4e646f4e65, type: 2}

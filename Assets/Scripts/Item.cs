@@ -101,7 +101,7 @@ public enum ItemId
     THOPHY_DIRTY,
     THOPHY_CLEAN,
     DAD_BOX,
-    CAT_KEY,
+    CAR_KEY,
     MOM_BAG,
     PARENT_ROOM_KEY,
     PHOTO1,
