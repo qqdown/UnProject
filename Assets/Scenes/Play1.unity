@@ -343,7 +343,7 @@ Transform:
   - {fileID: 234179312}
   - {fileID: 2075991249}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &947561886
 Prefab:
@@ -471,7 +471,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4842212938883958, guid: ea89659fbea173045aa2a4e518b737bc, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1189087743386656, guid: ea89659fbea173045aa2a4e518b737bc, type: 2}
       propertyPath: m_TagString
@@ -649,6 +649,12 @@ Prefab:
     - {fileID: 95435805700948474, guid: ea89659fbea173045aa2a4e518b737bc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ea89659fbea173045aa2a4e518b737bc, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1016952807 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114370278410038476, guid: ea89659fbea173045aa2a4e518b737bc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1016952806}
+  m_Script: {fileID: 11500000, guid: cd4cc9315eb8ddb4dbef068d1f874e25, type: 3}
 --- !u!1001 &1032260917
 Prefab:
   m_ObjectHideFlags: 0
@@ -1202,7 +1208,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f8e83fd113b853543922d891c58f279d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: f8e83fd113b853543922d891c58f279d, type: 3}
@@ -1268,7 +1274,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1705423085
 Prefab:
@@ -1600,11 +1606,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id_: 0
   name_: "\u94A5\u5319"
-  msg_: 
+  msg_: "\u8FD9\u662F\u63CF\u8FF0"
   type_: 1
   canPickup: 0
   texture: {fileID: 21300000, guid: c0b7ef36286b11d4aa8bdfd60647d20b, type: 3}
-  door_: {fileID: 0}
+  door_: {fileID: 1748436141}
 --- !u!54 &1902914025
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1853,7 +1859,27 @@ Prefab:
         type: 2}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1231520244}
+      objectReference: {fileID: 1016952807}
+    - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
+        type: 2}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UseItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
+        type: 2}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
+        type: 2}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
+        type: 2}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: TOOL
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9588fc48e1b191247a0ffb4e646f4e65, type: 2}
   m_IsPrefabParent: 0
