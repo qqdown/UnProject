@@ -20,7 +20,7 @@ abstract public class Item {
     {
         TARGET,
         KEY,
-        FOOD,
+        CONSUME,
         TOOL,
         NOTE,
     };
@@ -29,6 +29,7 @@ abstract public class Item {
     public string name_;
     public string msg_;
     public ItemType type_;
+    protected PlayerLogic owner_;
 
     public ItemId GetId()
     {
@@ -43,6 +44,11 @@ abstract public class Item {
     public string GetMsg()
     {
         return msg_;
+    }
+
+    public void SetOwner(PlayerLogic owner)
+    {
+        owner_ = owner;
     }
 
     abstract public bool Consume(out bool need_delete);

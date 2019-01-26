@@ -5,17 +5,16 @@ using UnityEngine;
 public class Candy : Item
 {
     public int buff_num_;
-    private Object owner_;
 
-    public void SetOwner(Object owner)
+    public Candy()
     {
-        owner_ = owner;
+        type_ = ItemType.CONSUME;
     }
 
     public override bool Consume(out bool need_delete)
     {
         need_delete = true;
-        owner_.AddSan(buff_num_);
+        owner_.SanUp(buff_num_);
         return true;
     }
 }

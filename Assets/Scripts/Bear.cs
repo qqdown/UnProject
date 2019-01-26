@@ -6,8 +6,9 @@ public class Bear : Item
 {
     private bool used_;
 
-    public Bear(string name, string msg) : base(name, msg)
+    public Bear()
     {
+        type_ = ItemType.CONSUME;
         used_ = false;
     }
 

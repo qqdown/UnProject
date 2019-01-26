@@ -21,6 +21,11 @@ public class Bag {
         return items_[id];
     }
 
+    public Dictionary<Item.ItemId, Item> GetAllItem()
+    {
+        return items_;
+    }
+
     public bool HasItem(Item.ItemId id)
     {
         return items_.ContainsKey(id);
@@ -28,7 +33,7 @@ public class Bag {
 
     public bool Consume(Item.ItemId id)
     {
-        if (!items_.ContainsKey(id))
+        if (!HasItem(id))
         {
             return false;
         }
