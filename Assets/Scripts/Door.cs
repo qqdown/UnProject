@@ -6,8 +6,12 @@ using DG.Tweening;
 public class Door : MonoBehaviour {
 
     [SerializeField] private bool m_OpenedAtBeginning = false;
+    Vector3 initRotation;
+    Vector3 targetRotation;
 	// Use this for initialization
 	void Start () {
+        initRotation = transform.eulerAngles;
+        targetRotation = initRotation + new Vector3(0, 90, 0);
         if (m_OpenedAtBeginning)
             Open();
 	}
@@ -20,7 +24,7 @@ public class Door : MonoBehaviour {
 
     public void Open()
     {
-        transform.DOLocalRotate(new Vector3(0, 90, 0), 1, RotateMode.Fast);
+        transform.DORotate(targetRotation, 1, RotateMode.Fast);
     }
 
 }
