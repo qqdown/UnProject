@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 abstract public class Item : MonoBehaviour {
-   
+
+    public UnityEvent OnPickup = new UnityEvent();
 
     public enum ItemType
     {
@@ -26,11 +28,22 @@ abstract public class Item : MonoBehaviour {
     protected PlayerLogic owner_;
 
     protected Collider collider_;
+    public HighlightingSystem.Highlighter highlighter;
 
     private void Start()
     {
+        if (highlighter == null)
+            highlighter = GetComponent<HighlightingSystem.Highlighter>();
+        if (highlighter == null)
+            highlighter = gameObject.AddComponent<HighlightingSystem.Highlighter>();
+
         collider_ = GetComponent<Collider>();
         collider_.isTrigger = true;
+    }
+
+    public void Highlight()
+    {
+        highlighter.On(Color.white);
     }
 
     public ItemId GetId()
@@ -54,6 +67,11 @@ abstract public class Item : MonoBehaviour {
     }
 
     abstract public bool Consume(out bool need_delete);
+
+    public void OnPickedup()
+    {
+        OnPickup.Invoke();
+    }
 
     private void OnTriggerEnter(Collider other)
     {

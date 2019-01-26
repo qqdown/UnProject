@@ -9,7 +9,9 @@ public class Bag {
     public void PickupItem(Item item)
     {
         items_.Add(item.GetId(), item);
+        item.OnPickedup();
         item.gameObject.SetActive(false);
+        UIManager.GetInst().OnPickupItem(item);
     }
 
     public void DropItem(ItemId id)
@@ -37,6 +39,7 @@ public class Bag {
     {
         if (!HasItem(id))
         {
+            UIManager.GetInst().ShowTip(string.Format("缺少使用道具"));
             return false;
         }
         bool need_delete;
