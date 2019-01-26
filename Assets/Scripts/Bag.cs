@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bag {
 
-    private Dictionary<Item.ItemId, Item> items_ = new Dictionary<Item.ItemId, Item>();
+    private Dictionary<ItemId, Item> items_ = new Dictionary<ItemId, Item>();
 
     public void PickupItem(Item item)
     {
@@ -12,28 +12,28 @@ public class Bag {
         item.gameObject.SetActive(false);
     }
 
-    public void DropItem(Item.ItemId id)
+    public void DropItem(ItemId id)
     {
         UIManager.GetInst().OnRemoveItem(GetItem(id));
         items_.Remove(id);
     }
 
-    public Item GetItem(Item.ItemId id)
+    public Item GetItem(ItemId id)
     {
         return items_[id];
     }
 
-    public Dictionary<Item.ItemId, Item> GetAllItem()
+    public Dictionary<ItemId, Item> GetAllItem()
     {
         return items_;
     }
 
-    public bool HasItem(Item.ItemId id)
+    public bool HasItem(ItemId id)
     {
         return items_.ContainsKey(id);
     }
 
-    public bool Consume(Item.ItemId id)
+    public bool Consume(ItemId id)
     {
         if (!HasItem(id))
         {

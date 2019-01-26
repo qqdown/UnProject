@@ -1,22 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 abstract public class Item : MonoBehaviour {
-
-    public enum ItemId
-    {
-        TOOL,
-        BOOK_ROOM_NOTE,
-        BEAR,
-        SOFA_NOTE,
-        CANDY,
-        CAT_KEY,
-        PARENT_ROOM_KEY,
-        PHOTO
-    };
+   
 
     public enum ItemType
     {
@@ -82,3 +72,16 @@ abstract public class Item : MonoBehaviour {
     }
 
 }
+
+[Serializable]
+public enum ItemId
+{
+    TOOL,
+    BOOK_ROOM_NOTE,
+    BEAR,
+    SOFA_NOTE,
+    CANDY,
+    CAT_KEY,
+    PARENT_ROOM_KEY,
+    PHOTO
+};

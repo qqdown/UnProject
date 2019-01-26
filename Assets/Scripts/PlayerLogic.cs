@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -27,7 +28,7 @@ public class PlayerLogic : MonoBehaviour {
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
-            UseItem(Item.ItemId.TOOL);
+            UseItem("TOOL");
     }
 
     private void FixedUpdate()
@@ -67,9 +68,9 @@ public class PlayerLogic : MonoBehaviour {
         UIManager.GetInst().ShowTip(string.Format("捡起物品【{0}】", item.GetName()));
     }
 
-    public bool UseItem(Item.ItemId id)
+    public void UseItem(string id)
     {
-        return bag.Consume(id);
+        bag.Consume((ItemId)Enum.Parse(typeof(ItemId), id));
     }
 
     public void SanUp(int delta)
