@@ -57,4 +57,9 @@ public class ProgressManager : MonoBehaviour {
         }
     }
 
+    public void OnWin()
+    {
+        Debug.Log("OnWin");
+    }
+
 }

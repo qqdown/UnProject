@@ -76,12 +76,18 @@ abstract public class Item : MonoBehaviour {
 [Serializable]
 public enum ItemId
 {
-    TOOL,
-    BOOK_ROOM_NOTE,
+    NOTE1,
+    NOTE2,
     BEAR,
-    SOFA_NOTE,
     CANDY,
+    THOPHY_DIRTY,
+    THOPHY_CLEAN,
+    DAD_BOX,
     CAT_KEY,
+    MOM_BAG,
     PARENT_ROOM_KEY,
-    PHOTO
+    PHOTO1,
+    PHOTO2,
+    PHOTO3,
+    PHOTO4
 };
