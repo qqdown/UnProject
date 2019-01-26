@@ -63,7 +63,7 @@ public class Monster : MonoBehaviour
         vis_down -= Time.deltaTime;
         if (vis_down < 0)
         {
-
+            
         }
     }
 
@@ -74,13 +74,13 @@ public class Monster : MonoBehaviour
         {
             return;
         }
-        if (player.HasItem(ItemId.BEAR))
+        if (!player.UseItemWithResult(ItemId.BEAR))
         {
-            
+            player.SanDown(20);
         }
         else
         {
-            player.SanDown(20);
+
         }
     }
 

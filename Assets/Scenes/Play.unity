@@ -7380,8 +7380,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   id_: 2
-  name_: 
-  msg_: 
+  name_: "\u718A\u9A91\u58EB"
+  msg_: "\u5A01\u6B66\u7684\u718A\u9A91\u58EB\uFF0C\u5728\u5173\u952E\u65F6\u523B\u80FD\u591F\u4FDD\u62A4\u4F60"
   type_: 2
   canPickup: 1
   texture: {fileID: 21300000, guid: 5760c6df322ff8d42bf602f015319470, type: 3}

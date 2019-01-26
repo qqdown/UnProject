@@ -86,10 +86,19 @@ public class PlayerLogic : MonoBehaviour {
         else if (id == "PARENT_ROOM_KEY" && parent_key_used)
             return;
         bool ret = bag.Consume((ItemId)Enum.Parse(typeof(ItemId), id));
-        if (id == "CAR_KEY")
+        if (id == "CAR_KEY" && ret)
             car_key_used = true;
-        else if (id == "PARENT_ROOM_KEY")
+        else if (id == "PARENT_ROOM_KEY" && ret)
             parent_key_used = true;
+    }
+
+    public bool UseItemWithResult(ItemId id)
+    {
+        if (HasItem(id))
+        {
+            return bag.Consume(id);
+        }
+        return false;
     }
 
     public bool HasItem(ItemId id)

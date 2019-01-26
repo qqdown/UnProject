@@ -44,13 +44,16 @@ public class Bag {
         }
         bool need_delete;
         var item = items_[id];
-        item.Consume(out need_delete);
+        bool ret = item.Consume(out need_delete);
         if (need_delete)
         {
             DropItem(id);
         }
-        UIManager.GetInst().ShowTip(string.Format("【{0}】已被使用", item.GetName()));
-        return true;
+        if (ret)
+        {
+            UIManager.GetInst().ShowTip(string.Format("【{0}】已被使用", item.GetName()));
+        }
+        return ret;
     }
 
 }
