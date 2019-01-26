@@ -66,7 +66,13 @@ public class PlayerLogic : MonoBehaviour {
     public void PickItem(Item item)
     {
         bag.PickupItem(item);
-        UIManager.GetInst().ShowTip(string.Format("捡起物品【{0}】", item.GetName()));
+        
+        UIManager.GetInst().ShowTip(string.Format("获得物品【{0}】", item.GetName()));
+    }
+
+    public void DropItem(Item item)
+    {
+        bag.DropItem(item.GetId());
     }
 
     public void UseItem(string id)

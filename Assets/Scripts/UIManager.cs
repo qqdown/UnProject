@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour {
     public GameObject BagContent;
     public UICodebox Codebox;
     public Button ButtonPickup;
+    public Image LargeImage;
 
     public string PlayScene = "Player";
 
@@ -85,10 +86,12 @@ public class UIManager : MonoBehaviour {
             Debug.Assert(item != null);
             ButtonPickup.gameObject.SetActive(true);
             itemForPickup = item;
+            item.highlighter.ConstantOn(Color.white);
         }
         else
         {
             ButtonPickup.gameObject.SetActive(false);
+            itemForPickup.highlighter.ConstantOff();
             itemForPickup = null;
         }
     }
@@ -98,15 +101,18 @@ public class UIManager : MonoBehaviour {
         if(itemForPickup != null)
         {
             player.PickItem(itemForPickup);
-            
-            GameObject go = (GameObject)Instantiate(BagItemPrefab, BagContent.transform);
-            go.transform.localEulerAngles = Vector3.one;
-            UIBagItem ubi = go.GetComponent<UIBagItem>();
-            bagItemDic.Add(itemForPickup, ubi);
-            ubi.SetItem(itemForPickup);
 
             ShowPickup(false);
         }
+    }
+
+    public void OnPickupItem(Item item)
+    {
+        GameObject go = (GameObject)Instantiate(BagItemPrefab, BagContent.transform);
+        go.transform.localEulerAngles = Vector3.one;
+        UIBagItem ubi = go.GetComponent<UIBagItem>();
+        bagItemDic.Add(item, ubi);
+        ubi.SetItem(item);
     }
 
     public void OnRemoveItem(Item item)

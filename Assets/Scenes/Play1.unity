@@ -915,6 +915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveMultiplier: 2
   RotateMultiplier: 1.5
+  AllowMove: 1
 --- !u!143 &1231520248
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1149,6 +1150,29 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baec086904791744185aaa07a6cf55c2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1612385649 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: baec086904791744185aaa07a6cf55c2, type: 2}
+  m_PrefabInternal: {fileID: 1612385648}
+--- !u!114 &1612385650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1612385649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b765e0b5af3bcf4a9deb5895e477da8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetFactor: 0
+  offsetUnits: 0
+  _downsampleFactor: 4
+  _iterations: 2
+  _blurMinSpread: 0.65
+  _blurSpread: 0.25
+  _blurIntensity: 0.3
+  _blitter: {fileID: 0}
 --- !u!1 &1683300982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1677,7 @@ MonoBehaviour:
   type_: 1
   canPickup: 0
   texture: {fileID: 21300000, guid: c0b7ef36286b11d4aa8bdfd60647d20b, type: 3}
+  highlighter: {fileID: 0}
   door_: {fileID: 1748436141}
 --- !u!54 &1902914025
 Rigidbody:

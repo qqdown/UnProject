@@ -22,10 +22,16 @@ public class UIBagItem : MonoBehaviour {
     public void ShowMessage()
     {
         messagePanel.SetActive(true);
+        if (item.texture)
+        {
+            UIManager.GetInst().LargeImage.gameObject.SetActive(true);
+            UIManager.GetInst().LargeImage.sprite = item.texture;
+        }
     }
 
     public void HideMessage()
     {
         messagePanel.SetActive(false);
+        UIManager.GetInst().LargeImage.gameObject.SetActive(false);
     }
 }

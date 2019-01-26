@@ -26,6 +26,7 @@ namespace UnityStandardAssets.Utility
         public bool repeatTrigger = false;
         public UnityEvent triggerEvent = new UnityEvent();
 
+        private BoxCollider boxCollider;
 
         private void DoActivateTrigger()
         {
@@ -89,6 +90,14 @@ namespace UnityStandardAssets.Utility
         private void OnTriggerEnter(Collider other)
         {
             DoActivateTrigger();
+        }
+
+        private void OnDrawGizmos()
+        {
+            if (boxCollider == null)
+                boxCollider = GetComponent<BoxCollider>();
+            Gizmos.color = new Color(1, 0, 0, 0.5F);
+            Gizmos.DrawCube(transform.position, boxCollider.size);
         }
     }
 }
