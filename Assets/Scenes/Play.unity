@@ -2007,7 +2007,7 @@ Prefab:
     - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
         type: 2}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4502988459081772, guid: 9588fc48e1b191247a0ffb4e646f4e65, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2080,6 +2080,21 @@ Prefab:
       propertyPath: repeatTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
+        type: 2}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
+        type: 2}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114844071894846952, guid: 9588fc48e1b191247a0ffb4e646f4e65,
+        type: 2}
+      propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1231520244}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9588fc48e1b191247a0ffb4e646f4e65, type: 2}
   m_IsPrefabParent: 0
@@ -3596,7 +3611,7 @@ MonoBehaviour:
   msg_: 
   type_: 0
   canPickup: 1
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: 022c8f1b7a6c9a84dbf85fb23723ffa2, type: 3}
   highlighter: {fileID: 0}
 --- !u!54 &446044846
 Rigidbody:
@@ -6022,7 +6037,7 @@ MonoBehaviour:
   msg_: 
   type_: 0
   canPickup: 1
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: e4a18487d8f215a479029b050d2069a7, type: 3}
   highlighter: {fileID: 0}
 --- !u!54 &755849117
 Rigidbody:
@@ -9313,7 +9328,7 @@ MonoBehaviour:
   msg_: 
   type_: 0
   canPickup: 1
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: 8d8b604b5659cc6459fcb8825c5152de, type: 3}
   highlighter: {fileID: 0}
 --- !u!54 &1150170791
 Rigidbody:
@@ -9705,18 +9720,7 @@ MonoBehaviour:
   san: 100
   GameOverEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1231520244}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   AllowMove: 1
@@ -15432,7 +15436,7 @@ MonoBehaviour:
   msg_: 
   type_: 0
   canPickup: 1
-  texture: {fileID: 0}
+  texture: {fileID: 21300000, guid: 43fe99245f3ebb24fa63fc1c9a07adb1, type: 3}
   highlighter: {fileID: 0}
 --- !u!54 &1872181638
 Rigidbody:
