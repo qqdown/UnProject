@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIBagItem : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private Image image;
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void SetItem(Item item)
+    {
+        if (image == null)
+            image = GetComponent<Image>();
+        image.sprite = item.texture;
+    }
 }

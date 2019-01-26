@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bag {
-    
-    private Dictionary<Item.ItemId, Item> items_;
 
-    public void AddItem(Item item)
+    private Dictionary<Item.ItemId, Item> items_ = new Dictionary<Item.ItemId, Item>();
+
+    public void PickupItem(Item item)
     {
-        items_[item.GetId()] = item;
+        items_.Add(item.GetId(), item);
+        item.gameObject.SetActive(false);
     }
 
     public void DropItem(Item.ItemId id)

@@ -14,8 +14,28 @@ public class UIManager : MonoBehaviour {
     public GameObject PanelPlay;
 
     public GameObject TipPrefab;
+    public GameObject BagItemPrefab;
+    public GameObject BagContent;
+
+    public Button ButtonPickup;
+
+    private Dictionary<Item, UIBagItem> bagItemDic = new Dictionary<Item, UIBagItem>();
+
+    private PlayerLogic player
+    {
+        get
+        {
+            if (m_Player != null)
+                return m_Player;
+            GameObject go = GameObject.FindGameObjectWithTag("Player");
+            m_Player = go.GetComponent<PlayerLogic>();
+            return m_Player;
+        }
+    }
+    private PlayerLogic m_Player;
 
     private HashSet<Text> tipTextList = new HashSet<Text>();
+    private Item itemForPickup = null;
 
     public static UIManager GetInst()
     {
@@ -54,6 +74,37 @@ public class UIManager : MonoBehaviour {
     public void ShowImage(Texture texture)
     {
 
+    }
+
+    public void ShowPickup(bool shown, Item item = null)
+    {
+        if (shown)
+        {
+            Debug.Assert(item != null);
+            ButtonPickup.gameObject.SetActive(true);
+            itemForPickup = item;
+        }
+        else
+        {
+            ButtonPickup.gameObject.SetActive(false);
+            itemForPickup = null;
+        }
+    }
+
+    public void OnButtonPickupClick()
+    {
+        if(itemForPickup != null)
+        {
+            player.PickItem(itemForPickup);
+            
+            GameObject go = (GameObject)Instantiate(BagItemPrefab, BagContent.transform);
+            go.transform.localEulerAngles = Vector3.one;
+            UIBagItem ubi = go.GetComponent<UIBagItem>();
+            bagItemDic.Add(itemForPickup, ubi);
+            ubi.SetItem(itemForPickup);
+
+            ShowPickup(false);
+        }
     }
 
     private IEnumerator ShowTipHandler(string message, float showTime)

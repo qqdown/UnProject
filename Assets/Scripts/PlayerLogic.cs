@@ -8,7 +8,7 @@ public class PlayerLogic : MonoBehaviour {
     public float MoveMultiplier= 3;
     public float RotateMultiplier = 1;
 
-    private Bag bag;
+    private Bag bag = new Bag();
     private int san;
 
     public delegate void GameOverHandler();
@@ -38,9 +38,9 @@ public class PlayerLogic : MonoBehaviour {
     {
         if (move.magnitude > 1f) move.Normalize();
         //move = transform.InverseTransformDirection(move);
-        var m_TurnAmount = Mathf.Atan2(move.x, move.z);
+        var m_TurnAmount = Mathf.Clamp(move.x, -1, 1) * Mathf.PI / 2.0f;
         var m_ForwardAmount = move.z;
-        transform.Rotate(transform.up, m_TurnAmount * RotateMultiplier);
+        transform.Rotate(Vector3.up, m_TurnAmount * RotateMultiplier);
         var realMove = m_ForwardAmount * transform.forward * MoveMultiplier * Time.fixedDeltaTime;
         m_Controller.Move(realMove);
         if (move.magnitude <= float.Epsilon)
@@ -57,7 +57,8 @@ public class PlayerLogic : MonoBehaviour {
 
     public void PickItem(Item item)
     {
-        bag.AddItem(item);
+        bag.PickupItem(item);
+        UIManager.GetInst().ShowTip(string.Format("捡起物品【{0}】", item.GetName()));
     }
 
     public bool UseItem(Item.ItemId id, Item.ItemId need_id)

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class Item {
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
+abstract public class Item : MonoBehaviour {
 
     public enum ItemId
     {
@@ -29,7 +31,17 @@ abstract public class Item {
     public string name_;
     public string msg_;
     public ItemType type_;
+    public bool canPickup;
+    public Sprite texture;
     protected PlayerLogic owner_;
+
+    protected Collider collider_;
+
+    private void Start()
+    {
+        collider_ = GetComponent<Collider>();
+        collider_.isTrigger = true;
+    }
 
     public ItemId GetId()
     {
@@ -52,5 +64,21 @@ abstract public class Item {
     }
 
     abstract public bool Consume(out bool need_delete);
-	
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            UIManager.GetInst().ShowPickup(true, this);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            UIManager.GetInst().ShowPickup(false);
+        }
+    }
+
 }
