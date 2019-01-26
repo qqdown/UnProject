@@ -80,6 +80,11 @@ public class PlayerLogic : MonoBehaviour {
         bag.Consume((ItemId)Enum.Parse(typeof(ItemId), id));
     }
 
+    public bool HasItem(ItemId id)
+    {
+        return bag.HasItem(id);
+    }
+
     public void SanUp(int delta)
     {
         san += delta;
@@ -96,6 +101,7 @@ public class PlayerLogic : MonoBehaviour {
         {
             OnGameOver();
         }
+        Debug.Log(san);
     }
 
     private void OnGameOver()
