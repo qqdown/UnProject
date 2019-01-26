@@ -109,6 +109,13 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    public void OnRemoveItem(Item item)
+    {
+        var ubi = bagItemDic[item];
+        bagItemDic.Remove(item);
+        Destroy(ubi.gameObject);
+    }
+
     private IEnumerator ShowTipHandler(string message, float showTime)
     {
         GameObject go = (GameObject)Instantiate(TipPrefab, PanelTip.transform);

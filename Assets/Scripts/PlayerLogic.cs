@@ -24,6 +24,12 @@ public class PlayerLogic : MonoBehaviour {
         m_Controller = GetComponent<CharacterController>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+            UseItem(Item.ItemId.TOOL);
+    }
+
     private void FixedUpdate()
     {
         // read inputs
@@ -61,9 +67,9 @@ public class PlayerLogic : MonoBehaviour {
         UIManager.GetInst().ShowTip(string.Format("捡起物品【{0}】", item.GetName()));
     }
 
-    public bool UseItem(Item.ItemId id, Item.ItemId need_id)
+    public bool UseItem(Item.ItemId id)
     {
-        return bag.Consume(id, need_id);
+        return bag.Consume(id);
     }
 
     public void SanUp(int delta)

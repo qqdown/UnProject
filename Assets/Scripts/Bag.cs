@@ -14,6 +14,7 @@ public class Bag {
 
     public void DropItem(Item.ItemId id)
     {
+        UIManager.GetInst().OnRemoveItem(GetItem(id));
         items_.Remove(id);
     }
 
@@ -32,19 +33,21 @@ public class Bag {
         return items_.ContainsKey(id);
     }
 
-    public bool Consume(Item.ItemId id, Item.ItemId need_id)
+    public bool Consume(Item.ItemId id)
     {
-        if (id != need_id)
+        if (!HasItem(id))
         {
             return false;
         }
         bool need_delete;
-        bool ret = items_[id].Consume(out need_delete);
+        var item = items_[id];
+        item.Consume(out need_delete);
         if (need_delete)
         {
             DropItem(id);
         }
-        return ret;
+        UIManager.GetInst().ShowTip(string.Format("【{0}】已被使用", item.GetName()));
+        return true;
     }
 
 }

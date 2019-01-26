@@ -11,15 +11,11 @@ public class Key : Item {
         type_ = ItemType.KEY;
     }
 
-    public void SetRelativeDoor(Door door)
-    {
-        door_ = door;
-    }
-
     public override bool Consume(out bool need_delete)
     {
-        need_delete = false;
-        door_.Open();
+        need_delete = true;
+        if(door_ != null)
+            door_.Open();
         return true;
     }
 
