@@ -15,7 +15,6 @@ public class Candy : Item
     public override bool Consume(out bool need_delete)
     {
         need_delete = true;
-        owner_.AddSan(buff_num_);
         return true;
     }
 }

@@ -6,7 +6,7 @@ public class Bear : Item
 {
     private bool used_;
 
-    public Bear(string name, string msg) : base(name, msg)
+    public Bear(string name, string msg)
     {
         used_ = false;
     }
