@@ -15,9 +15,9 @@ public class PlayerLogic : MonoBehaviour {
         bag.AddItem(item);
     }
 
-    public bool UseItem(Item.ItemId id)
+    public bool UseItem(Item.ItemId id, Item.ItemId need_id)
     {
-        return bag.Consume(id);
+        return bag.Consume(id, need_id);
     }
 
     public void SanUp(int delta)
