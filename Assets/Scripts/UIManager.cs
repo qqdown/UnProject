@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour {
 
     public GameObject PanelStart;
     public GameObject PanelTip;
+    public GameObject PanelPlay;
 
     public GameObject TipPrefab;
 
@@ -37,6 +38,7 @@ public class UIManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Play");
         PanelStart.SetActive(false);
+        PanelPlay.SetActive(true);
     }
 
     public void OnButtonExitClick()
@@ -47,6 +49,11 @@ public class UIManager : MonoBehaviour {
     public void ShowTip(string message, float showTime = 3.0f)
     {
         StartCoroutine(ShowTipHandler(message, showTime));
+    }
+
+    public void ShowImage(Texture texture)
+    {
+
     }
 
     private IEnumerator ShowTipHandler(string message, float showTime)
