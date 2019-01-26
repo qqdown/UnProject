@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using Object = UnityEngine.Object;
 
 namespace UnityStandardAssets.Utility
@@ -23,7 +24,7 @@ namespace UnityStandardAssets.Utility
         public GameObject source;
         public int triggerCount = 1;
         public bool repeatTrigger = false;
-        public string triggerName = "DoActivateTrigger";
+        public UnityEvent triggerEvent = new UnityEvent();
 
 
         private void DoActivateTrigger()
@@ -43,10 +44,7 @@ namespace UnityStandardAssets.Utility
                 switch (action)
                 {
                     case Mode.Trigger:
-                        if (targetGameObject != null)
-                        {
-                            targetGameObject.BroadcastMessage(triggerName);
-                        }
+                        triggerEvent.Invoke();
                         break;
                     case Mode.Replace:
                         if (source != null)
