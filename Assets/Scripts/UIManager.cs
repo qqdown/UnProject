@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour {
     public GameObject TipPrefab;
     public GameObject BagItemPrefab;
     public GameObject BagContent;
-
+    public UICodebox Codebox;
     public Button ButtonPickup;
 
     public string PlayScene = "Player";
@@ -128,5 +128,13 @@ public class UIManager : MonoBehaviour {
         Color c = text.color;
         c.a = 0;
         (text as Graphic).DOColor(c, 0.5f).OnComplete(()=> Destroy(go));
+    }
+
+    public void ShowCodeBoxUI(Codebox box)
+    {
+        player.AllowMove = false;
+        Codebox.gameObject.SetActive(true);
+        Codebox.codeBox = box;
+        Codebox.Init();
     }
 }

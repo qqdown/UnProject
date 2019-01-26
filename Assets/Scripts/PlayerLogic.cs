@@ -14,6 +14,7 @@ public class PlayerLogic : MonoBehaviour {
 
     public delegate void GameOverHandler();
     public event GameOverHandler GameOverEvent;
+    public bool AllowMove = true;
 
     private Vector3 m_Move;
     private Animation m_Anim;
@@ -21,23 +22,23 @@ public class PlayerLogic : MonoBehaviour {
 
     private void Start()
     {
+        
         m_Anim = GetComponent<Animation>();
         m_Controller = GetComponent<CharacterController>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-            UseItem("TOOL");
-    }
-
     private void FixedUpdate()
     {
-        // read inputs
-        float h = CrossPlatformInputManager.GetAxis("Horizontal");
-        float v = CrossPlatformInputManager.GetAxis("Vertical");
+        if (!AllowMove)
+            m_Move = new Vector3(0, 0, 0);
+        else
+        {
+            // read inputs
+            float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            float v = CrossPlatformInputManager.GetAxis("Vertical");
 
-        m_Move = new Vector3(h, 0, v);
+            m_Move = new Vector3(h, 0, v);
+        }
         Move(m_Move);
     }
 
