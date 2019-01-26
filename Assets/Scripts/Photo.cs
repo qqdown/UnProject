@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Candy : Item
+public class Photo : Item
 {
-    public int buff_num_;
 
-    public Candy()
+    public Photo()
     {
-        type_ = ItemType.CONSUME;
+        type_ = ItemType.TARGET;
     }
 
     public override bool Consume(out bool need_delete)
     {
-        need_delete = true;
-        owner_.SanUp(buff_num_);
+        need_delete = false;
         return true;
     }
 }

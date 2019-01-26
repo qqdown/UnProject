@@ -4,13 +4,46 @@ using UnityEngine;
 
 public class PlayerLogic : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private Bag bag;
+    private int san;
+
+    public delegate void GameOverHandler();
+    public event GameOverHandler GameOverEvent;
+
+    public void PickItem(Item item)
+    {
+        bag.AddItem(item);
+    }
+
+    public bool UseItem(Item.ItemId id)
+    {
+        return bag.Consume(id);
+    }
+
+    public void SanUp(int delta)
+    {
+        san += delta;
+        if (san > 100)
+        {
+            san = 100;
+        }
+    }
+
+    public void SanDown(int delta)
+    {
+        san -= delta;
+        if (san <= 0)
+        {
+            OnGameOver();
+        }
+    }
+
+    private void OnGameOver()
+    {
+        if (GameOverEvent != null)
+        {
+            GameOverEvent();
+        }
+    }
+
 }
