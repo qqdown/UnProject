@@ -21,6 +21,8 @@ public class PlayerLogic : MonoBehaviour {
     private Vector3 m_Move;
     private Animation m_Anim;
     private CharacterController m_Controller;
+    private bool car_key_used = false;
+    private bool parent_key_used = false;
 
     private void Start()
     {
@@ -81,7 +83,24 @@ public class PlayerLogic : MonoBehaviour {
 
     public void UseItem(string id)
     {
-        bag.Consume((ItemId)Enum.Parse(typeof(ItemId), id));
+        if (id == "CAR_KEY" && car_key_used)
+            return;
+        else if (id == "PARENT_ROOM_KEY" && parent_key_used)
+            return;
+        bool ret = bag.Consume((ItemId)Enum.Parse(typeof(ItemId), id));
+        if (id == "CAR_KEY" && ret)
+            car_key_used = true;
+        else if (id == "PARENT_ROOM_KEY" && ret)
+            parent_key_used = true;
+    }
+
+    public bool UseItemWithResult(ItemId id)
+    {
+        if (HasItem(id))
+        {
+            return bag.Consume(id);
+        }
+        return false;
     }
 
     public bool HasItem(ItemId id)
