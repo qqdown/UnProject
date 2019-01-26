@@ -31,9 +31,9 @@ public class Bag {
         return items_.ContainsKey(id);
     }
 
-    public bool Consume(Item.ItemId id)
+    public bool Consume(Item.ItemId id, Item.ItemId need_id)
     {
-        if (!HasItem(id))
+        if (id != need_id)
         {
             return false;
         }
