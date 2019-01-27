@@ -15,19 +15,19 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 8
   m_Fog: 1
-  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
-  m_FogMode: 2
+  m_FogColor: {r: 0.07058824, g: 0.003921569, b: 0.10980392, a: 1}
+  m_FogMode: 1
   m_FogDensity: 0.31
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.48703912, g: 0.47848183, b: 0.5514706, a: 1}
-  m_AmbientEquatorColor: {r: 0.4749135, g: 0.50646514, b: 0.5294118, a: 1}
-  m_AmbientGroundColor: {r: 0.29411763, g: 0.28330448, b: 0.2616782, a: 1}
+  m_LinearFogStart: 0.8
+  m_LinearFogEnd: 5
+  m_AmbientSkyColor: {r: 0.9411765, g: 0.83137256, b: 0.36862746, a: 1}
+  m_AmbientEquatorColor: {r: 0.7294118, g: 0.47058824, b: 0.8901961, a: 1}
+  m_AmbientGroundColor: {r: 0.047058824, g: 0.29411766, b: 0.3764706, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.5
+  m_HaloStrength: 0.526
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.664
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
+  m_IndirectSpecularColor: {r: 0.35955474, g: 0.39968503, b: 0.46734858, a: 0.664}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3775,7 +3775,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.35, y: 0.25, z: 0.36}
+  m_Size: {x: 1.14, y: 0.73, z: 0.79}
   m_Center: {x: 0, y: -6.9849193e-10, z: 0.0000000037252903}
 --- !u!23 &405110036
 MeshRenderer:
@@ -4064,8 +4064,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   id_: 10
-  name_: 
-  msg_: 
+  name_: "\u7167\u7247(1/4)"
+  msg_: "\u8FD9\u662F\u4E00\u5F20\u7167\u7247"
   type_: 0
   canPickup: 1
   texture: {fileID: 21300000, guid: 022c8f1b7a6c9a84dbf85fb23723ffa2, type: 3}
@@ -6595,8 +6595,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   id_: 13
-  name_: 
-  msg_: 
+  name_: "\u7167\u7247(4/4)"
+  msg_: "\u8FD9\u662F\u4E00\u5F20\u7167\u7247"
   type_: 0
   canPickup: 1
   texture: {fileID: 21300000, guid: e4a18487d8f215a479029b050d2069a7, type: 3}
@@ -8196,6 +8196,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &888072682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 888072683}
+  m_Layer: 0
+  m_Name: CamStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &888072683
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 888072682}
+  m_LocalRotation: {x: 0.21263108, y: -0.67437977, z: 0.21263108, w: 0.67437977}
+  m_LocalPosition: {x: 3.314, y: 2.942, z: -2.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &888395205
 GameObject:
   m_ObjectHideFlags: 0
@@ -8251,6 +8279,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1389864358}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &893724106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 893724107}
+  m_Layer: 0
+  m_Name: CamEndPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &893724107
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 893724106}
+  m_LocalRotation: {x: 0.24188033, y: 0.50995946, z: -0.15202552, w: 0.81137145}
+  m_LocalPosition: {x: -0.85, y: 4.1, z: 1.96}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &894392311
 GameObject:
@@ -10243,8 +10299,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   id_: 11
-  name_: 
-  msg_: 
+  name_: "\u7167\u7247(2/4)"
+  msg_: "\u8FD9\u662F\u4E00\u5F20\u7167\u7247"
   type_: 0
   canPickup: 1
   texture: {fileID: 21300000, guid: 8d8b604b5659cc6459fcb8825c5152de, type: 3}
@@ -10874,7 +10930,7 @@ Prefab:
     - target: {fileID: 108939864546599472, guid: 7158a328ea105384e8ab3536a5acbfb0,
         type: 2}
       propertyPath: m_Intensity
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1824552511812872, guid: 7158a328ea105384e8ab3536a5acbfb0, type: 2}
       propertyPath: m_Layer
@@ -10884,6 +10940,16 @@ Prefab:
         type: 2}
       propertyPath: glareBehind
       value: 0.906
+      objectReference: {fileID: 0}
+    - target: {fileID: 108939864546599472, guid: 7158a328ea105384e8ab3536a5acbfb0,
+        type: 2}
+      propertyPath: m_Range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 108939864546599472, guid: 7158a328ea105384e8ab3536a5acbfb0,
+        type: 2}
+      propertyPath: m_SpotAngle
+      value: 51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7158a328ea105384e8ab3536a5acbfb0, type: 2}
@@ -14689,6 +14755,10 @@ Prefab:
       propertyPath: m_FollowVelocity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: baec086904791744185aaa07a6cf55c2, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: baec086904791744185aaa07a6cf55c2, type: 2}
   m_IsPrefabParent: 0
@@ -17098,8 +17168,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   id_: 12
-  name_: 
-  msg_: 
+  name_: "\u7167\u7247(3/4)"
+  msg_: "\u8FD9\u662F\u4E00\u5F20\u7167\u7247"
   type_: 0
   canPickup: 1
   texture: {fileID: 21300000, guid: 43fe99245f3ebb24fa63fc1c9a07adb1, type: 3}
@@ -19077,6 +19147,8 @@ MonoBehaviour:
   - {fileID: 1872181637}
   - {fileID: 1150170790}
   - {fileID: 446044845}
+  camStartTrans: {fileID: 888072683}
+  camEndTrans: {fileID: 893724107}
 --- !u!4 &2086430544
 Transform:
   m_ObjectHideFlags: 0

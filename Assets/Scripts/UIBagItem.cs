@@ -27,16 +27,13 @@ public class UIBagItem : MonoBehaviour {
         {
             UIManager.GetInst().LargeImage.gameObject.SetActive(true);
             UIManager.GetInst().LargeImage.sprite = item.texture;
-            UIManager.GetInst().LargeImage.rectTransform.DOScale(Vector3.one, 0.2f);
+            //UIManager.GetInst().LargeImage.rectTransform.DOScale(Vector3.one, 0.02f);
         }
     }
 
     public void HideMessage()
     {
-        UIManager.GetInst().LargeImage.rectTransform.DOScale(Vector3.zero, 0.2f).OnComplete(()=>
-        {
-            messagePanel.SetActive(false);
-            UIManager.GetInst().LargeImage.gameObject.SetActive(false);
-        });
+        messagePanel.SetActive(false);
+        UIManager.GetInst().LargeImage.gameObject.SetActive(false);
     }
 }

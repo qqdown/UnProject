@@ -200,6 +200,7 @@ public class PlayerLogic : MonoBehaviour {
                 door.CloseImmediately();
             }
             finalPlayer.SetActive(true);
+            ProgressManager.GetInst().OnWin();
             gameObject.SetActive(false);
         });
 

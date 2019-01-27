@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using UnityStandardAssets.Cameras;
 
 public class ProgressManager : MonoBehaviour {
 
@@ -26,6 +28,9 @@ public class ProgressManager : MonoBehaviour {
     public Item[] winItems;
     private int i = 0;
 
+    public Transform camStartTrans;
+    public Transform camEndTrans;
+
     private void Awake()
     {
         s_progressManager = this;
@@ -48,6 +53,13 @@ public class ProgressManager : MonoBehaviour {
                 }
             });
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+            OnWin();
+            
     }
 
     public ProgressState GetState()
@@ -77,11 +89,6 @@ public class ProgressManager : MonoBehaviour {
         }
     }
 
-    public void OnWin()
-    {
-        Debug.Log("OnWin");
-    }
-
     public void Wash(Item newItem)
     {
 
@@ -98,6 +105,34 @@ public class ProgressManager : MonoBehaviour {
         yield return new WaitForSeconds(time);
         player.AllowMove = true;
         player.PickItem(newItem);
+    }
+
+    public void OnWin()
+    {
+        Camera cam = Camera.main;
+        AutoCam ac = FindObjectOfType<AutoCam>();
+        ac.enabled = false;
+        FindObjectOfType<ProtectCameraFromWallClip>().enabled = false;
+        //cam.transform.SetParent(null);
+        cam.transform.position = camStartTrans.position;
+        cam.transform.rotation = camStartTrans.rotation;
+        cam.transform.DOMove(camEndTrans.position, 3);
+        cam.transform.DORotateQuaternion(camEndTrans.rotation, 3).OnComplete(()=>
+        {
+            StartCoroutine(AutoRotate(cam));
+        });
+    }
+
+    IEnumerator AutoRotate(Camera cam)
+    {
+        float time = 15.0f;
+        float startTime = Time.time;
+        UIManager.GetInst().ProducterImage.gameObject.SetActive(true);
+        while ((Time.time - startTime) <= time)
+        {
+            cam.transform.Rotate(Vector3.up, 450f / time * Time.fixedDeltaTime, Space.World);
+            yield return new WaitForFixedUpdate();
+        }
     }
 
 }

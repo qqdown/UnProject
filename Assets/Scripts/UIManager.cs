@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour {
     public Button ButtonShowCode;
 
     public Image SanImage;
+    public Image ProducterImage;
 
     public string PlayScene = "Player";
 
@@ -58,13 +59,16 @@ public class UIManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            ShowTip(Time.time.ToString(), 3);
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //    ShowTip(Time.time.ToString(), 3);
 
         if (PanelPlay.activeInHierarchy && player != null)
         {
             SanImage.fillAmount = player.san / 100.0f;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     public void OnButtonStartClick()
