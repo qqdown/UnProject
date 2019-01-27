@@ -23,6 +23,17 @@ public class Codebox : MonoBehaviour {
 
     public void ShowCodeUI()
     {
-        UIManager.GetInst().ShowCodeBoxUI(this);
+        UIManager.GetInst().ButtonShowCode.gameObject.SetActive(true);
+        UIManager.GetInst().ButtonShowCode.onClick.RemoveAllListeners();
+        UIManager.GetInst().ButtonShowCode.onClick.AddListener(()=>
+        {
+            UIManager.GetInst().ShowCodeBoxUI(this);
+            UIManager.GetInst().ButtonShowCode.gameObject.SetActive(false);
+        });
+    }
+
+    public void HideCodeUI()
+    {
+        UIManager.GetInst().ButtonShowCode.gameObject.SetActive(false);
     }
 }

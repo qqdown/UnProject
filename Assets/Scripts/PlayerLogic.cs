@@ -24,9 +24,11 @@ public class PlayerLogic : MonoBehaviour {
     private bool car_key_used = false;
     private bool parent_key_used = false;
 
+    public GameObject bodyMeshObj;
+
     private void Start()
     {
-        
+        bodyMeshObj.AddComponent<HighlightingSystem.Highlighter>().ConstantOn(Color.black);
         m_Anim = GetComponent<Animation>();
         m_Controller = GetComponent<CharacterController>();
     }
