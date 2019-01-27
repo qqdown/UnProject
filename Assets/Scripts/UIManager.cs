@@ -141,7 +141,7 @@ public class UIManager : MonoBehaviour {
 
     public void ShowCodeBoxUI(Codebox box)
     {
-        player.AllowMove = false;
+        //player.AllowMove = false;
         Codebox.gameObject.SetActive(true);
         Codebox.codeBox = box;
         Codebox.Init();

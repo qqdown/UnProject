@@ -34,6 +34,7 @@ public class Codebox : MonoBehaviour {
 
     public void HideCodeUI()
     {
+        UIManager.GetInst().Codebox.Return();
         UIManager.GetInst().ButtonShowCode.gameObject.SetActive(false);
     }
 }
