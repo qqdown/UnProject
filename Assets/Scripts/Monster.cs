@@ -11,7 +11,8 @@ public class Monster : MonoBehaviour
     public Vector3 center = new Vector3(3, 0, 2);
     private float timer = 0;
 
-    public float vis_down = 0;
+    public float disappear_time = 4;
+    private float vis_down = 0;
 
     // Use this for initialization
     void Start()
@@ -61,9 +62,10 @@ public class Monster : MonoBehaviour
     void CheckVisibility()
     {
         vis_down -= Time.deltaTime;
-        if (vis_down < 0)
+        if (vis_down <= 0)
         {
-            
+            var r = gameObject.GetComponentInChildren<Renderer>();
+            r.enabled = true;
         }
     }
 
@@ -80,7 +82,9 @@ public class Monster : MonoBehaviour
         }
         else
         {
-
+            var r = gameObject.GetComponentInChildren<Renderer>();
+            r.enabled = false;
+            vis_down = disappear_time;
         }
     }
 
