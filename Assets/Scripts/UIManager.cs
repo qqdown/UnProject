@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour {
     public Image LargeImage;
 
     public Image FadeImage;
+    public Button ButtonShowCode;
 
     public string PlayScene = "Player";
 

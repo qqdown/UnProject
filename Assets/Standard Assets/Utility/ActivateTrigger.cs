@@ -25,6 +25,7 @@ namespace UnityStandardAssets.Utility
         public int triggerCount = 1;
         public bool repeatTrigger = false;
         public UnityEvent triggerEvent = new UnityEvent();
+        public UnityEvent exitEvent = new UnityEvent();
 
         private BoxCollider boxCollider;
 
@@ -90,6 +91,11 @@ namespace UnityStandardAssets.Utility
         private void OnTriggerEnter(Collider other)
         {
             DoActivateTrigger();
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            exitEvent.Invoke();
         }
 
         private void OnDrawGizmos()
