@@ -33,6 +33,8 @@ public class PlayerLogic : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.U))
+            OnGameWin();
         if (!AllowMove)
             m_Move = new Vector3(0, 0, 0);
         else
@@ -138,6 +140,14 @@ public class PlayerLogic : MonoBehaviour {
         {
             GameOverEvent.Invoke();
         }
+    }
+
+    public void OnGameWin()
+    {
+        AllowMove = false;
+        UIManager.GetInst().FadeImage.color = Color.white;
+        var cg = UIManager.GetInst().FadeImage.GetComponent<CanvasGroup>();
+        cg.DOFade(1, 1.5f);
     }
 
 }
