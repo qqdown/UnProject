@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-
     public float speed = 1;
     public float move_time = 4;
     public Vector3 size = new Vector3(4, 4, 4);
@@ -17,7 +16,7 @@ public class Monster : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame

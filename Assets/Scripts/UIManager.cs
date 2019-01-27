@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour {
     public Image FadeImage;
     public Button ButtonShowCode;
 
+    public Image SanImage;
+
     public string PlayScene = "Player";
 
     private Dictionary<Item, UIBagItem> bagItemDic = new Dictionary<Item, UIBagItem>();
@@ -58,6 +60,11 @@ public class UIManager : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Space))
             ShowTip(Time.time.ToString(), 3);
+
+        if (PanelPlay.activeInHierarchy && player != null)
+        {
+            SanImage.fillAmount = player.san / 100.0f;
+        }
     }
 
     public void OnButtonStartClick()
@@ -116,6 +123,14 @@ public class UIManager : MonoBehaviour {
         UIBagItem ubi = go.GetComponent<UIBagItem>();
         bagItemDic.Add(item, ubi);
         ubi.SetItem(item);
+        StartCoroutine(tempShowMessage(ubi));
+    }
+
+    private IEnumerator tempShowMessage(UIBagItem ubi)
+    {
+        ubi.ShowMessage();
+        yield return new WaitForSeconds(2f);
+        ubi.HideMessage();
     }
 
     public void OnRemoveItem(Item item)

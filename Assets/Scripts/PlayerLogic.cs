@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityStandardAssets.CrossPlatformInput;
 using DG.Tweening;
+using UnityStandardAssets.Cameras;
 
 public class PlayerLogic : MonoBehaviour {
 
@@ -26,11 +27,18 @@ public class PlayerLogic : MonoBehaviour {
 
     public GameObject bodyMeshObj;
 
+    public GameObject finalPlayer;
+    public AutoCam autoCam;
+
+    private Monster monster;
+
     private void Start()
     {
         bodyMeshObj.AddComponent<HighlightingSystem.Highlighter>().ConstantOn(Color.black);
         m_Anim = GetComponent<Animation>();
         m_Controller = GetComponent<CharacterController>();
+
+        monster = FindObjectOfType<Monster>();
     }
 
     private void FixedUpdate()
@@ -149,7 +157,13 @@ public class PlayerLogic : MonoBehaviour {
         AllowMove = false;
         UIManager.GetInst().FadeImage.color = Color.white;
         var cg = UIManager.GetInst().FadeImage.GetComponent<CanvasGroup>();
-        cg.DOFade(1, 1.5f);
+        cg.DOFade(1, 1.5f).OnComplete(() =>
+        {
+            autoCam.SetTarget(finalPlayer.transform);
+            cg.DOFade(0, 0.5f);
+            gameObject.SetActive(false);
+        });
+
     }
 
 }
