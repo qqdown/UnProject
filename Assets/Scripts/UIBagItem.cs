@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UIBagItem : MonoBehaviour {
 
@@ -26,12 +27,16 @@ public class UIBagItem : MonoBehaviour {
         {
             UIManager.GetInst().LargeImage.gameObject.SetActive(true);
             UIManager.GetInst().LargeImage.sprite = item.texture;
+            UIManager.GetInst().LargeImage.rectTransform.DOScale(Vector3.one, 0.2f);
         }
     }
 
     public void HideMessage()
     {
-        messagePanel.SetActive(false);
-        UIManager.GetInst().LargeImage.gameObject.SetActive(false);
+        UIManager.GetInst().LargeImage.rectTransform.DOScale(Vector3.zero, 0.2f).OnComplete(()=>
+        {
+            messagePanel.SetActive(false);
+            UIManager.GetInst().LargeImage.gameObject.SetActive(false);
+        });
     }
 }

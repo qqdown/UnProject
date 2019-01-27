@@ -68,8 +68,9 @@ abstract public class Item : MonoBehaviour {
 
     abstract public bool Consume(out bool need_delete);
 
-    public void OnPickedup()
+    public virtual void OnPickedup()
     {
+        owner_ = FindObjectOfType<PlayerLogic>();
         OnPickup.Invoke();
     }
 

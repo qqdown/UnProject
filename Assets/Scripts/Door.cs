@@ -27,4 +27,8 @@ public class Door : MonoBehaviour {
         transform.DORotate(targetRotation, 1, RotateMode.Fast);
     }
 
+    public void CloseImmediately()
+    {
+        transform.eulerAngles = initRotation;
+    }
 }

@@ -32,13 +32,24 @@ public class PlayerLogic : MonoBehaviour {
 
     private Monster monster;
 
+    private HighlightingSystem.Highlighter highlighter;
+    private Color highlightColor = Color.black;
+
     private void Start()
     {
-        bodyMeshObj.AddComponent<HighlightingSystem.Highlighter>().ConstantOn(Color.black);
+        highlighter = bodyMeshObj.AddComponent<HighlightingSystem.Highlighter>();
         m_Anim = GetComponent<Animation>();
         m_Controller = GetComponent<CharacterController>();
 
         monster = FindObjectOfType<Monster>();
+    }
+
+    private void Update()
+    {
+        highlighter.On(highlightColor);
+
+        if (san < 50 && HasItem(ItemId.CANDY))
+            bag.Consume(ItemId.CANDY);
     }
 
     private void FixedUpdate()
@@ -56,6 +67,7 @@ public class PlayerLogic : MonoBehaviour {
             m_Move = new Vector3(h, 0, v);
         }
         Move(m_Move);
+        
     }
 
     public void Move(Vector3 move)
@@ -130,6 +142,15 @@ public class PlayerLogic : MonoBehaviour {
     public void SanDown(int delta)
     {
         san -= delta;
+
+        if(san < 50)
+        {
+            if (bag.HasItem(ItemId.CANDY))
+            {
+                bag.Consume(ItemId.CANDY);
+            }
+        }
+
         if (san <= 0)
         {
             var cg = UIManager.GetInst().FadeImage.GetComponent<CanvasGroup>();
@@ -141,7 +162,19 @@ public class PlayerLogic : MonoBehaviour {
             });
             OnGameOver();
         }
+        StartCoroutine(underAttack());
         Debug.Log(san);
+    }
+
+    IEnumerator underAttack()
+    {
+        for(int i=0; i<5; i++)
+        {
+            highlightColor = Color.red;
+            yield return new WaitForSeconds(0.2f);
+            highlightColor = Color.black;
+            yield return new WaitForSeconds(0.2f);
+        }
     }
 
     private void OnGameOver()
@@ -159,8 +192,14 @@ public class PlayerLogic : MonoBehaviour {
         var cg = UIManager.GetInst().FadeImage.GetComponent<CanvasGroup>();
         cg.DOFade(1, 1.5f).OnComplete(() =>
         {
+            monster.gameObject.SetActive(false);
             autoCam.SetTarget(finalPlayer.transform);
             cg.DOFade(0, 0.5f);
+            foreach(var door in FindObjectsOfType<Door>())
+            {
+                door.CloseImmediately();
+            }
+            finalPlayer.SetActive(true);
             gameObject.SetActive(false);
         });
 

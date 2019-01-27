@@ -12,11 +12,13 @@ public class Monster : MonoBehaviour
 
     public float disappear_time = 4;
     private float vis_down = 0;
+    private float lastAttackTime = 0;
 
+    HighlightingSystem.Highlighter highlighter;
     // Use this for initialization
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -75,9 +77,11 @@ public class Monster : MonoBehaviour
         {
             return;
         }
-        if (!player.UseItemWithResult(ItemId.BEAR))
+        float attackInterval = Time.time - lastAttackTime;
+        if (attackInterval > 1 && !player.UseItemWithResult(ItemId.BEAR))
         {
             player.SanDown(20);
+            lastAttackTime = Time.time;
         }
         else
         {

@@ -21,6 +21,7 @@ public class ProgressManager : MonoBehaviour {
     public event StateChangeHandler StateEvent;
 
     public GameObject finalTrigger;
+    public AudioClip waterAudio;
 
     public Item[] winItems;
     private int i = 0;
@@ -79,6 +80,24 @@ public class ProgressManager : MonoBehaviour {
     public void OnWin()
     {
         Debug.Log("OnWin");
+    }
+
+    public void Wash(Item newItem)
+    {
+
+        StartCoroutine(washHandler(newItem));
+    }
+
+    IEnumerator washHandler(Item newItem)
+    {
+        float time = 2.0f;
+        UIManager.GetInst().ShowTip("清洗奖杯中", time);
+        var player = FindObjectOfType<PlayerLogic>();
+        player.AllowMove = false;
+        Camera.main.gameObject.AddComponent<AudioSource>().PlayOneShot(waterAudio);
+        yield return new WaitForSeconds(time);
+        player.AllowMove = true;
+        player.PickItem(newItem);
     }
 
 }

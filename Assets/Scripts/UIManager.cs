@@ -129,7 +129,7 @@ public class UIManager : MonoBehaviour {
     private IEnumerator tempShowMessage(UIBagItem ubi)
     {
         ubi.ShowMessage();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         ubi.HideMessage();
     }
 
